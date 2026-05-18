@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>realign our stars ✨</title>
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-color: #f0f0f5;
+            --accent-cyan: #00f2fe;
+            --accent-pink: #ff758c;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+                radial-gradient(rgba(255,255,255,0.15), rgba(255,255,255,0.05) 1px, transparent 30px);
+            background-size: 550px 550px, 350px 350px;
+            background-position: 0 0, 40px 60px;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+
+        header {
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            background: linear-gradient(45deg, var(--accent-cyan), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #a0a5c0;
+            max-width: 600px;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 0 20px 100px 20px;
+        }
+
+        .timeline-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            margin-bottom: 60px;
+        }
+
+        .card-video {
+            width: 100%;
+            max-height: 430px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background-color: #000;
+        }
+
+        .year {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-cyan);
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        .reset-box {
+            background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(255, 117, 140, 0.1));
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 45px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(0, 242, 254, 0.1);
+            margin-bottom: 60px;
+        }
+
+        .reset-box h2 {
+            font-size: 2rem;
+            margin-top: 0;
+            color: #fff;
+        }
+
+        .reset-box p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #d1d5db;
+            text-align: left;
+        }
+
+        .rule-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed var(--accent-pink);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 40px;
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(37, 211, 102, 0.6);
+        }
+
+        /* --- SLIDER STYLING --- */
+        .slider-section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin: 40px 0 20px 0;
+            background: linear-gradient(45deg, #fff, #a0a5c0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 100%;
+            height: 450px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.02);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .slides-wrapper {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #050508;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 14px 18px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s, color 0.3s;
+            z-index: 10;
+            user-select: none;
+        }
+
+        .slider-btn:hover {
+            background: white;
+            color: black;
+        }
+
+        .slider-btn.prev { left: 20px; }
+        .slider-btn.next { right: 20px; }
+
+        .dots-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .dot.active {
+            background: var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #44475a;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>realign our stars</h1>
+        <p>Bhavya ✦ Sravya ✦ Draksha<br>Letting go of the heavy stuff, rising above the turbulence, and floating back to where it all began.</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="timeline-card">
+            <div class="year">Day 1 to Freshers</div>
+            <h3>Where the Universe Aligned 💖</h3>
+            <p><strong>Day 1:</strong> Bhavya and Sravya met. We sat on the exact same bench, and honestly, it felt like magic because our tastes matched in so many things instantly. <br><br>
+            <strong>Day 3:</strong> Enter Draksha—with that incredibly innocent face and lovely personality. From that moment, the trio was complete. We started spending every waking second together. We shared everything: our highest happiness, our deepest sadness, and absolute chaos. Remember Freshers Day? We enjoyed it like crazy and took endless snaps.</p>
+            
+            <video class="card-video" controls>
+                <source src="file:///D:/relaign/vedio1.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="timeline-card">
+            <div class="year">Trust & Sharing our personal matters </div>
+            <h3>Safe Havens & Shared Secrets 🔒</h3>
+            <p>As we grew closer, we unlocked a whole new level of trust. Sravya, you told us about your boyfriend, and we were both genuinely so incredibly happy for you. When I went through my breakup, you both stood right there beside me, shielding me and encouraging me to get through it. <br><br>
+            And Draksha! When you suddenly opened up and dropped your own love story, we were in absolute shock! We never expected it from our innocent girl, but we were so happy. Then came all our birthdays—celebrating each other with pure joy, going to movies, and just living our best lives.</p>
+            
+            <video class="card-video" controls>
+                <source src="file:///D:/relaign/vedio2.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="timeline-card">
+            <div class="year">The Asteroid Belt</div>
+            <h3>The Weight of Misunderstandings 🌪️</h3>
+            <p>Then 3rd year happened, and gravity got heavy. During mid-exams, when we were all stressed studying, seating arrangements got messy. Sravya went to the last bench, I was studying on the ground and then took the bench Sravya left. Draksha, you felt like we were intentionally leaving you behind, so you went silent. Because I didn't take the initiative to break the ice, we didn't talk for 3 whole months. <br><br>
+            When I finally initiated and we talked, we promised each other: <em>"If you feel something, just tell me directly, don't let it drag."</em> But then, another fight happened between me and Sravya. I shut down and stopped talking to both of you. Draksha felt hurt because she wasn't part of that fight. We lost our old rapport, silence took over, and we just drifted into our own worlds.</p>
+            
+            <video class="card-video" controls>
+                <source src="file:///D:/relaign/vedio3.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="reset-box">
+            <h2>Let's Hit the Reset Button 🔄</h2>
+            <p>Hey guys, looking back at 1st year... our friendship was so pure. It was just Bhavya, Sravya, and Draksha. I've realized something deeply: <strong>We are amazing friends when it's just about US.</strong></p>
+            
+            <p>Our problems started when we let external personal issues and relationship chapters heavy up our bond. I don't want us to lose what we built since day one over things outside of our trio.</p>
+            
+            <div class="rule-box">
+                Let's be friends like we were in 1st year, but let's completely keep our "boyfriend chapters" and personal relationship issues out of our friendship space. Just the three of us, our jokes, our memories, and our futures.
+            </div>
+
+            <p>We are in 3-2 right now, moving into our final year. I don't want to look back at engineering and regret losing the two most important people I met on Day 1. If you guys miss the laughs, miss the benched classes, and are ready to drop the heavy past to start fresh...</p>
+            
+            <a href="https://chat.whatsapp.com/K48l7mA0yUrEMqofG8wkke" class="whatsapp-btn" target="_blank">Join the Fresh Start Group 🤍</a>
+        </div>
+
+        <h2 class="slider-section-title">Our Memory Vault ✨</h2>
+        <div class="slider-container">
+            <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
+            
+            <div class="slides-wrapper" id="sliderWrapper">
+                <div class="slide"><img src="file:///D:/relaign/pic1.jpeg" alt="Memory 1"></div>
+                <div class="slide"><img src="file:///D:/relaign/pic 2.jpeg" alt="Memory 2"></div>
+                <div class="slide"><img src="file:///D:/relaign/pic3.jpeg" alt="Memory 3"></div>
+                <div class="slide"><img src="file:///D:/relaign/pic4.jpeg" alt="Memory 4"></div>
+                <div class="slide"><img src="file:///D:/relaign/pic5.jpeg" alt="Memory 5"></div>
+                <div class="slide"><img src="file:///D:/relaign/pic6.jpeg" alt="Memory 6"></div>
+                <div class="slide"><img src="file:///D:/relaign/pic7.jpeg" alt="Memory 7"></div>
+                <div class="slide"><img src="file:///D:/relaign/pic8.jpeg" alt="Memory 8"></div>
+            </div>
+        </div>
+
+        <div class="dots-container">
+            <div class="dot active" onclick="currentSlide(0)"></div>
+            <div class="dot" onclick="currentSlide(1)"></div>
+            <div class="dot" onclick="currentSlide(2)"></div>
+            <div class="dot" onclick="currentSlide(3)"></div>
+            <div class="dot" onclick="currentSlide(4)"></div>
+            <div class="dot" onclick="currentSlide(5)"></div>
+            <div class="dot" onclick="currentSlide(6)"></div>
+            <div class="dot" onclick="currentSlide(7)"></div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>REALIGN OUR STARS // CREATED BY BHAVYA WITH LOVE.</p>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const wrapper = document.getElementById('sliderWrapper');
+        const dots = document.querySelectorAll('.dot');
+
+        function updateSliderPosition() {
+            wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentIndex].classList.add('active');
+        }
+
+        function moveSlide(direction) {
+            currentIndex += direction;
+            if (currentIndex >= totalSlides) {
+                currentIndex = 0;
+            } else if (currentIndex < 0) {
+                currentIndex = totalSlides - 1;
+            }
+            updateSliderPosition();
+        }
+
+        function currentSlide(index) {
+            currentIndex = index;
+            updateSliderPosition();
+        }
+    </script>
+
+</body>
+</html>
